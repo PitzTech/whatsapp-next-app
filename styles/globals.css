@@ -1,5 +1,42 @@
 :root {
-	--primary-background: white;
+	/*  Backgrounds  */
+
+	--primary-background: #fafafa;
+	--secondary-background: rgb(237, 237, 237);
+	--secondary-background-constrast: rgb(221, 220, 220);
+
+	/*     Fonts    */
+
+	--secondary-text: #4a4a4a;
+
+	/* user-agent font-size is 16px = 1rem = 100% */
+	font-size: 62.5%; /* 10px */
+}
+
+/* user-agent font-size is 16px */
+
+@media (max-width: 1080px) {
+	html {
+		font-size: 90%; /* 9px */
+	}
+}
+
+@media (max-width: 943px) {
+	html {
+		font-size: 80%; /* 8px */
+	}
+}
+
+@media (max-width: 700px) {
+	html {
+		font-size: 70%; /* 7px */
+	}
+}
+
+@media (max-width: 590px) {
+	html {
+		font-size: 6%; /* 6px */
+	}
 }
 
 /* ::-webkit-scrollbar {
@@ -19,17 +56,23 @@
 
 html,
 body {
-	padding: 0;
-	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
 		Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-	color: inherit;
-	text-decoration: none;
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	box-sizing: border-box;
 }
 
-* {
-	box-sizing: border-box;
+h1 {
+	font-weight: normal;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
 }
