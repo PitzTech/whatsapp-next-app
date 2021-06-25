@@ -2,7 +2,18 @@ import styled from "styled-components"
 import { Avatar, Button } from "@material-ui/core"
 
 export const SidebarContainer = styled.aside`
-	max-width: 20vw;
+	width: 30rem;
+	height: 100vh;
+
+	overflow-y: scroll;
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+	--ms-overflow-style: none;
+	scrollbar-width: none;
+
+	border-right: 1px solid var(--secondary-background-constrast);
 `
 
 export const Header = styled.header`
@@ -37,6 +48,10 @@ export const IconsContainer = styled.div`
 `
 
 export const SearchContainer = styled.div`
+	position: sticky;
+	top: 8rem;
+	z-index: 1;
+
 	display: flex;
 	align-items: center;
 	justify-content: center;

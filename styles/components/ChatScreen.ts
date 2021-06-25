@@ -38,7 +38,14 @@ export const HeaderIcons = styled.div`
 	}
 `
 
-export const MessageContainer = styled.section``
+export const MessageContainer = styled.section`
+	background-color: rgb(229, 221, 213);
+	background-position: center;
+	background-size: cover;
+
+	padding: 3rem;
+	min-height: 90vh;
+`
 
 export const EndOfMessages = styled.div``
 
@@ -52,7 +59,6 @@ export const InputContainer = styled.form`
 
 	padding: 1rem 2.5rem;
 	background: var(--secondary-background);
-	border-left: 1px solid var(--secondary-background-constrast);
 
 	grid-auto-flow: column;
 	grid-gap: 1.5rem;

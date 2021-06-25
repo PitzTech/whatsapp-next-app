@@ -24,6 +24,8 @@ import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon"
 import SearchIcon from "@material-ui/icons/Search"
 import MicIcon from "@material-ui/icons/Mic"
 
+import screenMessageBackground from "../assets/screenMessageBackground.png"
+
 export default function ChatScreen({ chat, messages }): JSX.Element {
 	const [user] = useAuthState(auth)
 	const router = useRouter()
