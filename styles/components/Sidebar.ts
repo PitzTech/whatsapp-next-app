@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { Avatar, Button } from "@material-ui/core"
 
 export const SidebarContainer = styled.aside`
-	max-width: 30vw;
+	max-width: 20vw;
 `
 
 export const Header = styled.header`
@@ -44,12 +44,13 @@ export const SearchContainer = styled.div`
 	background-color: var(--secondary-background);
 
 	width: 100%;
-	padding: 0.5rem 0;
+	padding: 1rem 0;
 
 	.searchBar {
 		background-color: var(--primary-background);
-		padding: 0.5rem;
+		padding: 1rem;
 		border-radius: 1rem;
+		width: 90%;
 
 		display: flex;
 		align-items: center;

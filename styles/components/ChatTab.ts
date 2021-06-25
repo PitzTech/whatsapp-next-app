@@ -9,9 +9,11 @@ export const ChatContainer = styled(Button)`
 	&&& {
 		word-break: break-word;
 
-		padding: 1.5rem 0;
+		padding: 1.5rem 2rem;
 		border-bottom: 1px solid var(--secondary-background-constrast);
 		border-top: 1px solid var(--secondary-background-constrast);
+
+		justify-content: flex-start;
 	}
 `
 
