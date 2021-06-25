@@ -69,3 +69,5 @@ export const SidebarButton = styled(Button)`
 		border-top: 1px solid var(--secondary-background-constrast);
 	}
 `
+
+export const ChatList = styled.div``

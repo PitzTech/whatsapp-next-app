@@ -1,32 +1,64 @@
+import { auth, database } from "../services/firebase"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { useCollection } from "react-firebase-hooks/firestore"
+
+import * as EmailValidator from "email-validator"
+
 import {
 	SidebarContainer,
 	Header,
 	UserAvatar,
 	IconsContainer,
 	SearchContainer,
-	SidebarButton
+	SidebarButton,
+	ChatList
 } from "../styles/components/Sidebar"
-import * as EmailValidator from "email-validator"
 
 import { IconButton } from "@material-ui/core"
 import ChatIcon from "@material-ui/icons/Chat"
 import MoreVertIcon from "@material-ui/icons/More"
 import SearchIcon from "@material-ui/icons/Search"
 
-function Sidebar(): JSX.Element {
-	function handleChatCreation() {
+import Chat from "./Chat"
+
+export default function Sidebar(): JSX.Element {
+	const [user] = useAuthState(auth)
+	const userChatRef = database
+		.collection("chats")
+		.where("users", "array-contains", user?.email)
+	const [chatsSnapshot] = useCollection(userChatRef)
+
+	function handleAvatarClick(): void {
+		auth.signOut()
+	}
+
+	function handleChatCreation(): void {
 		const input = prompt("User email you wanna chat with")
 
-		if (!input) return null
+		if (!input) return
 
-		if (EmailValidator.validate(input)) {
-			// add chat to DB chats collection
+		if (
+			EmailValidator.validate(input) &&
+			input !== user?.email &&
+			!isChatExistent(input)
+		) {
+			database.collection("chats").add({
+				users: [user?.email, input]
+			})
 		}
 	}
+
+	function isChatExistent(receiverEmail: string): boolean {
+		return !!chatsSnapshot?.docs.find(
+			chat =>
+				chat.data().users.find((user: string) => user === receiverEmail)?.length > 0
+		)
+	}
+
 	return (
 		<SidebarContainer>
 			<Header>
-				<UserAvatar />
+				<UserAvatar onClick={handleAvatarClick} />
 
 				<IconsContainer>
 					<IconButton>
@@ -46,8 +78,12 @@ function Sidebar(): JSX.Element {
 			</SearchContainer>
 
 			<SidebarButton onClick={handleChatCreation}>Start a new chat</SidebarButton>
+
+			<ChatList>
+				{chatsSnapshot?.docs.map(chat => (
+					<Chat key={chat.id} id={chat.id} users={chat.data().users} />
+				))}
+			</ChatList>
 		</SidebarContainer>
 	)
 }
-
-export default Sidebar
