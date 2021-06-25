@@ -1,34 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+  <a href="https://github.com/PitzTech/netflix-react-clone"><img alt="Whatsapp Next Clone" title="Whatsapp Next Clone" src="assets/logo.svg" width="220px" /></a>
+</h1>
 
-## Getting Started
+<blockquote align="center">“Sucesso não é o resultado de um jogo, mas o destino de uma jornada”!</blockquote>
 
-First, run the development server:
+<p align="center">
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-como-usar">Como usar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-licença">Licença</a>
+</p>
+
+<p align="center">
+ <img src="https://img.shields.io/static/v1?label=PRs&message=welcome&color=49AA26&labelColor=000000" alt="PRs welcome!" />
+
+  <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
+</p>
+
+<br>
+
+<p align="center">
+   <img src="./.github/screenshot.png" alt="Whatsapp Next Clone">
+</p>
+
+<h3 align="center">
+   Um clone funcional do Whatsapp Web construido com NextJS, ReactJS, Typescript, Styled Components, Firebase e MaterialUI.
+</h3>
+
+## 🚀 Tecnologias
+
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+-  HTML
+-  CSS
+-  Typescript
+-  NextJS
+-  ReactJS
+-  Material UI
+-  Styled Components
+-  Email Validator
+-  Firebase
+-  Lottie
+-  TimeAgo-React
+-  Moment
+
+## 💻 Projeto
+
+Esse projeto foi desenvolvido visando replicar a experiencia de troca de mensagens fornecida pela aplicação do Whatsapp Web.
+
+## 👷 Como usar
+
+<p>Você irá precisar dessas instalar essas ferramentas:</p>
+
+-  [Node.js](https://nodejs.org/en/ "Node.js")
+-  [Yarn](https://yarnpkg.com/ "Yarn")
+-  [Git](https://git-scm.com/ "Git")
+
+Para executar basta rodar os seguintes comandos:
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Clone this repository
+$ git clone https://github.com/PitzTech/whatsapp-next-app
+
+# Go into the folder of the project
+$ cd netflix-react-clone
+
+# Install the dependencies
+$ yarn
+
+# Start the client
+$ yarn dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## :memo: Licença
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Projeto concluido com ♥ by PitzTech:wave:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<p align="center">
+  <a href="https://www.linkedin.com/in/victor-laurentino-do-nascimento/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="mailto:victorlaurentino7@gmail.com?subject=Oi%20Victor!%20Vim%20do%20seu%20GitHub"><img alt="Gmail" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.linkedin.com/in/victor-laurentino-do-nascimento/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+</p>
