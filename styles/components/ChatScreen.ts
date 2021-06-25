@@ -25,6 +25,7 @@ export const HeaderInfo = styled.div`
 	h3 {
 		margin-top: -5px;
 		margin-bottom: 0.3rem;
+		color: var(--secondary-text);
 	}
 
 	p {
@@ -65,6 +66,7 @@ export const InputContainer = styled.form`
 
 	.footer-icon {
 		font-size: 2.5rem;
+		color: var(--secondary-text);
 	}
 `
 

@@ -29,7 +29,7 @@ export const Header = styled.header`
 	top: 0;
 	z-index: 1;
 
-	background-color: var(--secondary-background);
+	background: var(--secondary-background);
 `
 
 export const UserAvatar = styled(Avatar)`
@@ -56,13 +56,13 @@ export const SearchContainer = styled.div`
 	align-items: center;
 	justify-content: center;
 
-	background-color: var(--secondary-background);
+	background: var(--secondary-background);
 
 	width: 100%;
 	padding: 1rem 0;
 
 	.searchBar {
-		background-color: var(--primary-background);
+		background: var(--primary-background);
 		padding: 1rem;
 		border-radius: 1rem;
 		width: 90%;
@@ -76,15 +76,6 @@ export const SearchContainer = styled.div`
 			flex: 1;
 			background-color: var(--primary-background);
 		}
-	}
-`
-
-export const SidebarButton = styled(Button)`
-	width: 100%;
-
-	&&& {
-		border-bottom: 1px solid var(--secondary-background-constrast);
-		border-top: 1px solid var(--secondary-background-constrast);
 	}
 `
 

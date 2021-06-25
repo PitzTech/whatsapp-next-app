@@ -10,7 +10,6 @@ import {
 	UserAvatar,
 	IconsContainer,
 	SearchContainer,
-	SidebarButton,
 	ChatList
 } from "../styles/components/Sidebar"
 
@@ -24,8 +23,8 @@ import ChatTab from "./ChatTab"
 export default function Sidebar(): JSX.Element {
 	const [user] = useAuthState(auth)
 	const userChatRef = database
-		.collection("chats")
-		.where("users", "array-contains", user?.email)
+		?.collection("chats")
+		?.where("users", "array-contains", user?.email)
 	const [chatsSnapshot] = useCollection(userChatRef)
 
 	function handleAvatarClick(): void {
@@ -62,7 +61,7 @@ export default function Sidebar(): JSX.Element {
 
 				<IconsContainer>
 					<IconButton>
-						<ChatIcon className="header-icon" />
+						<ChatIcon onClick={handleChatCreation} className="header-icon" />
 					</IconButton>
 					<IconButton>
 						<MoreVertIcon className="header-icon" />
@@ -76,8 +75,6 @@ export default function Sidebar(): JSX.Element {
 					<input placeholder="Search or start new chat" />
 				</div>
 			</SearchContainer>
-
-			<SidebarButton onClick={handleChatCreation}>Start a new chat</SidebarButton>
 
 			<ChatList>
 				{chatsSnapshot?.docs.map(chat => (

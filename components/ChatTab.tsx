@@ -32,7 +32,7 @@ export default function ChatTab({ id, users }: ChatProps): JSX.Element {
 			{receiverData ? (
 				<UserAvatar src={receiverData?.photoURL} />
 			) : (
-				<UserAvatar>{receiverEmail[0]}</UserAvatar>
+				<UserAvatar>{receiverEmail[0].toUpperCase()}</UserAvatar>
 			)}
 
 			<p>{receiverData?.name || receiverEmail}</p>
