@@ -1,7 +1,9 @@
 import styled from "styled-components"
 import { Avatar, Button } from "@material-ui/core"
 
-export const SidebarContainer = styled.aside``
+export const SidebarContainer = styled.aside`
+	max-width: 30vw;
+`
 
 export const Header = styled.header`
 	display: flex;

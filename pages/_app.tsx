@@ -21,6 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 		if (user) {
 			database.collection("users").doc(user.uid).set(
 				{
+					name: user.displayName,
 					email: user.email,
 					lastSeen: firebase.firestore.FieldValue.serverTimestamp(),
 					photoURL: user.photoURL
@@ -28,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				{ merge: true }
 			)
 		}
-	}, [])
+	}, [user])
 
 	if (loading) return <Loading />
 	if (!user) return <Login />

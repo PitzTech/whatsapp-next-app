@@ -19,7 +19,7 @@ import ChatIcon from "@material-ui/icons/Chat"
 import MoreVertIcon from "@material-ui/icons/More"
 import SearchIcon from "@material-ui/icons/Search"
 
-import Chat from "./Chat"
+import ChatTab from "./ChatTab"
 
 export default function Sidebar(): JSX.Element {
 	const [user] = useAuthState(auth)
@@ -58,7 +58,7 @@ export default function Sidebar(): JSX.Element {
 	return (
 		<SidebarContainer>
 			<Header>
-				<UserAvatar onClick={handleAvatarClick} />
+				<UserAvatar src={user?.photoURL || ""} onClick={handleAvatarClick} />
 
 				<IconsContainer>
 					<IconButton>
@@ -81,7 +81,7 @@ export default function Sidebar(): JSX.Element {
 
 			<ChatList>
 				{chatsSnapshot?.docs.map(chat => (
-					<Chat key={chat.id} id={chat.id} users={chat.data().users} />
+					<ChatTab key={chat.id} id={chat.id} users={chat.data().users} />
 				))}
 			</ChatList>
 		</SidebarContainer>
