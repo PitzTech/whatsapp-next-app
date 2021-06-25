@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import { useState, ChangeEvent, MouseEvent } from "react"
+import { useState, ChangeEvent, MouseEvent, useRef, useLayoutEffect } from "react"
 import TimeAgo from "timeago-react"
 
 import firebase from "firebase"
@@ -32,6 +32,8 @@ import MicIcon from "@material-ui/icons/Mic"
 
 export default function ChatScreen({ chat, messages }): JSX.Element {
 	const [user] = useAuthState(auth)
+	const endOFMessageRef = useRef(null)
+
 	const receiverEmail = getReceiverEmail(chat.users, user as User)
 	const [receiverSnapshot] = useCollection(
 		database.collection("users").where("email", "==", receiverEmail)
@@ -47,6 +49,10 @@ export default function ChatScreen({ chat, messages }): JSX.Element {
 			.collection("messages")
 			.orderBy("timestamp", "asc")
 	)
+
+	useLayoutEffect(() => {
+		scrollToBottom()
+	}, [])
 
 	function handleShowMessages() {
 		if (messagesSnapshot) {
@@ -97,6 +103,14 @@ export default function ChatScreen({ chat, messages }): JSX.Element {
 			})
 
 		setInput("")
+		scrollToBottom()
+	}
+
+	function scrollToBottom() {
+		endOFMessageRef.current.scrollIntoView({
+			behavior: "smooth",
+			block: "start"
+		})
 	}
 
 	return (
@@ -120,7 +134,7 @@ export default function ChatScreen({ chat, messages }): JSX.Element {
 									locale="pt_BR"
 								/>
 							) : (
-								" ..."
+								"Never"
 							)}
 						</p>
 					) : (
@@ -140,14 +154,18 @@ export default function ChatScreen({ chat, messages }): JSX.Element {
 
 			<MessageContainer>
 				{handleShowMessages()}
-				<EndOfMessages />
+				<EndOfMessages ref={endOFMessageRef} />
 			</MessageContainer>
 
 			<InputContainer>
 				<InsertEmoticonIcon className="footer-icon" />
 				<AttachFileIcon className="footer-icon" />
 
-				<Input value={input} onChange={handleInputText} />
+				<Input
+					placeholder="Type a message"
+					value={input}
+					onChange={handleInputText}
+				/>
 				<button hidden disabled={!input} type="submit" onClick={handleSendButton}>
 					Send Message
 				</button>

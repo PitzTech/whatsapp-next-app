@@ -23,7 +23,7 @@ export const HeaderInfo = styled.div`
 
 	font-size: 1.15rem;
 	h3 {
-		margin-top: -5px;
+		margin-top: -2px;
 		margin-bottom: 0.3rem;
 		color: var(--secondary-text);
 	}
@@ -48,7 +48,9 @@ export const MessageContainer = styled.section`
 	min-height: 90vh;
 `
 
-export const EndOfMessages = styled.div``
+export const EndOfMessages = styled.div`
+	margin-bottom: 7rem;
+`
 
 export const InputContainer = styled.form`
 	display: flex;
