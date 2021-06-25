@@ -39,3 +39,38 @@ export const HeaderIcons = styled.div`
 `
 
 export const MessageContainer = styled.section``
+
+export const EndOfMessages = styled.div``
+
+export const InputContainer = styled.form`
+	display: flex;
+	align-items: center;
+
+	position: sticky;
+	z-index: 99;
+	bottom: 0;
+
+	padding: 1rem 2.5rem;
+	background: var(--secondary-background);
+	border-left: 1px solid var(--secondary-background-constrast);
+
+	grid-auto-flow: column;
+	grid-gap: 1.5rem;
+
+	.footer-icon {
+		font-size: 2.5rem;
+	}
+`
+
+export const Input = styled.input`
+	flex: 1;
+	align-items: center;
+	padding: 1rem;
+
+	position: sticky;
+	bottom: 0;
+
+	height: 4rem;
+	background: var(--primary-background);
+	border-radius: 2rem;
+`

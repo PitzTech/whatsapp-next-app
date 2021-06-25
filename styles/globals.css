@@ -1,7 +1,11 @@
 :root {
+	/* DEFAULT COLORS ARE IN LIGHT MODE */
 	/*  Backgrounds  */
 
+	--primary-background-dark: #2a2f32;
 	--primary-background: #fafafa;
+
+	--secondary-background-dark: #181c24;
 	--secondary-background: rgb(237, 237, 237);
 	--secondary-background-constrast: rgb(221, 220, 220);
 
@@ -44,6 +48,7 @@ html,
 body {
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
 		Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	background: var(--primary-background);
 }
 
 * {

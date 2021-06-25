@@ -1,23 +1,54 @@
 import { useRouter } from "next/router"
 
 import { useAuthState } from "react-firebase-hooks/auth"
-import { auth } from "../services/firebase"
+import { auth, database } from "../services/firebase"
+import { useCollection } from "react-firebase-hooks/firestore"
+
+import Message from "./Message"
 
 import {
 	Container,
 	Header,
 	HeaderInfo,
 	HeaderIcons,
-	MessageContainer
+	MessageContainer,
+	EndOfMessages,
+	InputContainer,
+	Input
 } from "../styles/components/ChatScreen"
 
+import { Avatar, IconButton } from "@material-ui/core"
 import MoreVertIcon from "@material-ui/icons/moreVert"
 import AttachFileIcon from "@material-ui/icons/AttachFile"
-import { Avatar, IconButton } from "@material-ui/core"
+import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon"
+import SearchIcon from "@material-ui/icons/Search"
+import MicIcon from "@material-ui/icons/Mic"
 
 export default function ChatScreen({ chat, messages }): JSX.Element {
 	const [user] = useAuthState(auth)
 	const router = useRouter()
+	const [messagesSnapshot] = useCollection(
+		database
+			.collection("chats")
+			.doc(router.query.id)
+			.collection("messages")
+			.orderBy("timestamp", "asc")
+	)
+
+	function handleShowMessages() {
+		if (messagesSnapshot) {
+			return messagesSnapshot.docs.map(message => (
+				<Message
+					key={message.id}
+					user={message.data().user}
+					message={{
+						...message.data(),
+						timestamp: message.data().timestamp?.toDate().getTime()
+					}}
+				/>
+			))
+		}
+	}
 
 	return (
 		<Container>
@@ -31,7 +62,7 @@ export default function ChatScreen({ chat, messages }): JSX.Element {
 
 				<HeaderIcons>
 					<IconButton>
-						<AttachFileIcon className="header-icon" />
+						<SearchIcon className="header-icon" />
 					</IconButton>
 					<IconButton>
 						<MoreVertIcon className="header-icon" />
@@ -39,7 +70,17 @@ export default function ChatScreen({ chat, messages }): JSX.Element {
 				</HeaderIcons>
 			</Header>
 
-			<MessageContainer></MessageContainer>
+			<MessageContainer>
+				{/* {handleShowMessages()} */}
+				<EndOfMessages />
+			</MessageContainer>
+
+			<InputContainer>
+				<InsertEmoticonIcon className="footer-icon" />
+				<AttachFileIcon className="footer-icon" />
+				<Input />
+				<MicIcon className="footer-icon" />
+			</InputContainer>
 		</Container>
 	)
 }
