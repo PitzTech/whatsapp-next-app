@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/PitzTech/netflix-react-clone"><img alt="Whatsapp Next Clone" title="Whatsapp Next Clone" src="assets/logo.svg" width="220px" /></a>
+  <a href="https://github.com/PitzTech/netflix-react-clone"><img alt="Whatsapp Next Clone" title="Whatsapp Next Clone" src="assets/logo.svg" width="150px" /></a>
 </h1>
 
 <blockquote align="center">“Sucesso não é o resultado de um jogo, mas o destino de uma jornada”!</blockquote>
